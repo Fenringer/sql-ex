@@ -1,18 +1,15 @@
 /*
-Найдите сражения, в которых участвовали корабли класса Kongo из таблицы Ships.
+    Найдите сражения, в которых участвовали корабли класса Kongo из таблицы Ships.
 */
 
 ----------------------------------------------------------------
-select battle
+select distinct battle
 from outcomes
-left join Ships on Ships.name=Outcomes.ship
+join Ships on Ships.name = Outcomes.ship
 where class = 'kongo'
 
---select * from outcomes
---select * from Ships
-
 ----------------------------------------------------------------
-SELECT battle 
+SELECT distinct battle 
 FROM Outcomes
 left JOIN Ships ON Ships.name = outcomes.Ship  
 left JOIN Classes ON Classes.Class = Ships.Class 
@@ -20,7 +17,7 @@ left JOIN Classes ON Classes.Class = Ships.Class
 WHERE  Classes.class = 'kongo'
 
 ----------------------------------------------------------------
-SELECT battle 
+SELECT distinct battle 
 FROM Outcomes
 full JOIN (
     Ships full JOIN Classes ON Classes.Class = Ships.Class
@@ -30,7 +27,7 @@ WHERE  Classes.class = 'kongo'
 and battle is not null
 
 ----------------------------------------------------------------
-select battle
+select distinct battle
 from (
     select ship as name
     FROM Outcomes 
